@@ -7,6 +7,7 @@ import json
 import logging
 import os
 from pykdtree.kdtree import KDTree as KDTree
+import numpy as numpy
 import sys
 import zipfile
 from urllib.request import urlopen
@@ -47,7 +48,7 @@ class GeocodeData(metaclass=Singleton):
         self._locations = self._extract(
             rel_path(geocode_filename), min_population
         )
-        coordinates = [(loc["latitude"], loc["longitude"]) for loc in self._locations]
+        coordinates = numpy.array([(loc["latitude"], loc["longitude"]) for loc in self._locations])
         self._tree = KDTree(coordinates)
         self._load_countries(rel_path(country_filename))
 
