@@ -62,7 +62,8 @@ class GeocodeData(metaclass=Singleton):
     def query(self, coordinates):
         """Find closest match to this list of coordinates"""
         try:
-            distances, indices = self._tree.query(coordinates, k=1)
+            query_coordinates = numpy.array(coordinates)
+            distances, indices = self._tree.query(query_coordinates, k=1)
         except ValueError as e:
             logging.info("Unable to parse coordinates: {}".format(coordinates))
             raise e
