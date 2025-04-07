@@ -6,7 +6,7 @@ import io
 import json
 import logging
 import os
-from scipy.spatial import cKDTree as KDTree
+from pykdtree.kdtree import KDTree as KDTree
 import sys
 import zipfile
 from urllib.request import urlopen
