@@ -32,5 +32,5 @@ setup(
         "Programming Language :: Python :: 3",
     ],
     license="lgpl",
-    install_requires=["numpy", "scipy"],
+    install_requires=["numpy", "pykdtree"],
 )
